@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-black: #05050b;
+    --bg-dark: #0d1020;
+    --bg-purple: #24103d;
+
+    --cyan: #00e5ff;
+    --cyan-light: #8bf7ff;
+    --purple: #a855f7;
+    --purple-light: #dda8ff;
+    --pink: #ff3b9d;
+    --green: #40f58d;
+    --gold: #ffd449;
+    --white: #f8fbff;
+    --muted: #9da9c4;
+
+    --card: rgba(12, 15, 31, 0.9);
+    --border: rgba(0, 229, 255, 0.3);
+}
+
+/* إعادة ضبط بسيطة */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(0, 229, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 85% 14%, rgba(255, 59, 157, 0.16), transparent 27%),
+        radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.2), transparent 42%),
+        linear-gradient(135deg, var(--bg-black), var(--bg-dark), var(--bg-purple));
+    background-attachment: fixed;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 38px 20px;
+    position: relative;
+
+    color: var(--white);
+    text-align: center;
+    font-family: "Rajdhani", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* شبكة خلفية خفيفة بطابع Gaming / Arcade */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.25;
+
+    background-image:
+        linear-gradient(rgba(0, 229, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9),
+        transparent 85%
+    );
+}
+
+::selection {
+    color: #071018;
+    background: var(--cyan);
+}
+
+/* عنوان المحل */
+.title-container {
+    width: min(790px, 100%);
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.main-title {
+    margin: 0;
+    font-family: "Orbitron", Arial, sans-serif;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.name-Bisan {
+    display: block;
+    margin-bottom: 5px;
+
+    font-size: clamp(2.4rem, 8vw, 5rem);
+    font-weight: 900;
+    letter-spacing: clamp(3px, 1.4vw, 12px);
+
+    background: linear-gradient(
+        90deg,
+        #00e5ff 0%,
+        #dfffff 18%,
+        #c26cff 38%,
+        #ffffff 50%,
+        #ff54ad 70%,
+        #00e5ff 100%
+    );
+    background-size: 240% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.5));
+    animation: neon-shine 4s linear infinite;
+}
+
+.Games-title,
+.games-title {
+    display: inline-block;
+    margin: 5px 10px;
+
+    color: var(--cyan);
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.3rem, 4vw, 2.35rem);
+    font-weight: 800;
+    letter-spacing: clamp(2px, 0.8vw, 7px);
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 10px rgba(0, 229, 255, 1),
+        0 0 26px rgba(0, 229, 255, 0.48);
+}
+
+.ps4-title {
+    display: inline-block;
+    margin: 5px 10px;
+
+    color: var(--purple-light);
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(1.3rem, 4vw, 2.35rem);
+    font-weight: 800;
+    letter-spacing: clamp(2px, 0.8vw, 7px);
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 10px rgba(197, 104, 255, 0.95),
+        0 0 26px rgba(168, 85, 247, 0.48);
+}
+
+.subtitle {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: clamp(1rem, 2.4vw, 1.3rem);
+    font-weight: 700;
+    letter-spacing: clamp(2px, 0.8vw, 8px);
+    text-transform: uppercase;
+}
+
+.version-badge {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 23px;
+
+    color: #07121a;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-size: clamp(0.73rem, 1.8vw, 0.96rem);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+
+    background: linear-gradient(135deg, #bdfaff, var(--cyan), #7dffbd);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 999px;
+    box-shadow:
+        0 0 16px rgba(0, 229, 255, 0.6),
+        0 8px 26px rgba(0, 229, 255, 0.26);
+}
+
+/* الخط بين العنوان والقائمة */
+hr {
+    width: min(650px, 86%);
+    height: 2px;
+    margin: 24px auto;
+    border: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--purple),
+        var(--cyan),
+        var(--pink),
+        transparent
+    );
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.82),
+        0 0 24px rgba(168, 85, 247, 0.46);
+}
+
+/* بطاقة القائمة */
+#menu {
+    width: min(720px, 100%);
+    margin: 0 auto;
+    padding: clamp(25px, 5vw, 44px);
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015)),
+        var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.6),
+        0 0 36px rgba(0, 229, 255, 0.1),
+        inset 0 0 0 1px rgba(168, 85, 247, 0.1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+#menu::before {
+    content: "";
+    position: absolute;
+    top: -130px;
+    left: 50%;
+    width: 500px;
+    height: 230px;
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(0, 229, 255, 0.25) 0%,
+        rgba(168, 85, 247, 0.13) 42%,
+        transparent 73%
+    );
+}
+
+#menu::after {
+    content: "";
+    position: absolute;
+    right: 12%;
+    bottom: 0;
+    left: 12%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--purple),
+        var(--cyan),
+        var(--pink),
+        transparent
+    );
+    box-shadow: 0 0 16px var(--cyan);
+}
+
+/* عنوان GoldHEN الموجود بتنسيق inline في HTML */
+#menu h1 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 30px !important;
+    color: var(--cyan-light) !important;
+    font-family: "Orbitron", Arial, sans-serif !important;
+    font-size: clamp(1.1rem, 3vw, 1.55rem) !important;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 10px rgba(0, 229, 255, 0.7),
+        0 0 24px rgba(0, 229, 255, 0.3);
+}
+
+/* زر GoldHEN */
+#menu .btn {
+    width: min(90%, 420px) !important;
+    height: 64px !important;
+    margin: 8px auto !important;
+    padding: 12px 20px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    color: #ffffff !important;
+    font-family: "Rajdhani", Arial, sans-serif;
+    font-size: clamp(1.08rem, 3vw, 1.35rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    border: 1px solid rgba(0, 229, 255, 0.85) !important;
+    border-radius: 15px !important;
+
+    background:
+        linear-gradient(135deg, rgba(0, 229, 255, 0.42), rgba(168, 85, 247, 0.72)),
+        #201447 !important;
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.44),
+        0 0 16px rgba(0, 229, 255, 0.44),
+        0 0 28px rgba(168, 85, 247, 0.22) !important;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        filter 0.22s ease;
+}
+
+/* انعكاس ضوئي على الزر */
+#menu .btn::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -55%;
+    width: 36%;
+    height: 300%;
+    transform: rotate(24deg);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.28),
+        transparent
+    );
+
+    transition: left 0.55s ease;
+}
+
+#menu .btn:hover::before {
+    left: 120%;
+}
+
+#menu .btn:hover {
+    transform: translateY(-4px);
+    color: #071019 !important;
+
+    background: linear-gradient(
+        135deg,
+        #7df7ff,
+        var(--cyan),
+        #bd6cff,
+        #ff65b4
+    ) !important;
+
+    box-shadow:
+        0 15px 32px rgba(0, 0, 0, 0.48),
+        0 0 22px rgba(0, 229, 255, 0.8),
+        0 0 42px rgba(168, 85, 247, 0.58) !important;
+}
+
+#menu .btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+#menu .btn:focus,
+#menu .btn:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+
+    box-shadow:
+        0 0 0 6px rgba(255, 212, 73, 0.22),
+        0 0 28px rgba(255, 212, 73, 0.75) !important;
+}
+
+/* مصمم الصفحة والنص السفلي */
+#menu h1:last-child {
+    margin: 32px 0 0 !important;
+    color: #dce6fa !important;
+    font-family: "Rajdhani", Arial, sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    line-height: 1.7;
+    text-shadow: none;
+}
+
+#menu h1:last-child a {
+    color: var(--gold) !important;
+    font-family: "Orbitron", Arial, sans-serif;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(255, 212, 73, 0.58);
+}
+
+#menu h1:last-child span {
+    color: #8d9bb8 !important;
+    font-size: 14px !important;
+}
+
+/* تأثير لمعان النص */
+@keyframes neon-shine {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 240% center;
+    }
+}
+
+/* الموبايل وWebKit في PS4 */
+@media (max-width: 600px) {
+    body {
+        padding: 25px 12px;
+    }
+
+    .title-container {
+        margin-bottom: 18px;
+    }
+
+    .Games-title,
+    .games-title,
+    .ps4-title {
+        display: block;
+        margin: 8px auto;
+    }
+
+    #menu {
+        padding: 28px 15px;
+        border-radius: 21px;
+    }
+
+    #menu .btn {
+        width: 96% !important;
+        height: 60px !important;
+    }
+}
+
+/* تعطيل الحركات لمن يفضّل تقليلها */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
